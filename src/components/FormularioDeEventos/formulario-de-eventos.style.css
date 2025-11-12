@@ -1,0 +1,19 @@
+.evento-form {
+  background-color: #212121;
+  width: 406px;
+  border-radius: 16px;
+  margin: 64px auto;
+  padding: 32px;
+}
+
+.campos {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.acoes {
+  margin-top: 32px;
+  display: flex;
+  justify-self: center;
+}
