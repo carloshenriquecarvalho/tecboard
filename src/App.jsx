@@ -2,6 +2,7 @@ import './App.css'
 import { FormularioDeEventos } from "./components/FormularioDeEventos"
 import { Tema } from "./components/Tema"
 import { Banner } from './components/Banner'
+import { CardEvento } from './components/CardEvento/CardEvento'
 
 function App() {
   const temas = [
@@ -33,7 +34,7 @@ function App() {
 
   const eventos = [
     {
-      capa: "",
+      capa: "https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png",
       tema: temas[0],
       data: new Date(),
       titulo: "Mulheres no Front",
@@ -46,12 +47,12 @@ function App() {
         <img src="/logo.png" alt="" />
       </header>
       <Banner />
-      < FormularioDeEventos />
-      {temas.map(item => {
+      < FormularioDeEventos temas={temas}/>
+      {temas.map(function (item) {
         return (
           <section key={item.id}>
             <Tema tema={item}>
-              {/* <CardEvento evento={}> </CardEvento> */}
+              <CardEvento evento={eventos[0]}></CardEvento>
             </Tema>
           </section>
         )
