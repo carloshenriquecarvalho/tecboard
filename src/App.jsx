@@ -31,6 +31,15 @@ function App() {
     }
   ]
 
+  const eventos = [
+    {
+      capa: "",
+      tema: temas[0],
+      data: new Date(),
+      titulo: "Mulheres no Front",
+    },
+  ]
+
   return (
     <main>
       <header>
@@ -38,11 +47,16 @@ function App() {
       </header>
       <Banner />
       < FormularioDeEventos />
-      <section>
-        <Tema tema={temas[0]}>
-        </Tema>
-      </section>
-   
+      {temas.map(item => {
+        return (
+          <section key={item.id}>
+            <Tema tema={item}>
+              {/* <CardEvento evento={}> </CardEvento> */}
+            </Tema>
+          </section>
+        )
+      })}
+{/*       
       <section>
         <Tema tema={temas[1]}>
         </Tema>
@@ -62,7 +76,7 @@ function App() {
       <section>
         <Tema tema={temas[5]}>
         </Tema>
-      </section>
+      </section> */}
     </main>
   )
 }

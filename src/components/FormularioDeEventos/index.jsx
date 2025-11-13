@@ -25,11 +25,6 @@ export function FormularioDeEventos() {
         </Label>
         <CampoDeEntrada type="date" id="data" name="data" placeholder='XX/XX/XXXX'/>
       </CampoFormulario>
-      <CampoFormulario>
-        <Label htmlFor="lista-suspensa">
-          Selecione o tema:
-        </Label>
-      </CampoFormulario>
       </div>
       <div className="acoes">
         <Botao>
