@@ -3,8 +3,6 @@ import { CampoFormulario } from "../CampoFormulario";
 import { TituloFormulario } from "../TituloFormulario";
 import { Label } from "../Label";
 import { CampoDeEntrada } from "../CampoDeEntrada";
-import { OpcoesListaSuspensa } from "../OpcoesListaSuspensa";
-import { ListaSuspensa } from "../ListaSuspensa";
 import { Botao } from "../Botao";
 
 
@@ -32,11 +30,6 @@ export function FormularioDeEventos() {
           Selecione o tema:
         </Label>
       </CampoFormulario>
-      <ListaSuspensa id="lista-suspensa">
-        <OpcoesListaSuspensa value="angular">Selecione uma Opção</OpcoesListaSuspensa>
-        <OpcoesListaSuspensa value="angular">Angular</OpcoesListaSuspensa>
-        <OpcoesListaSuspensa value="vue.js">Vue.js</OpcoesListaSuspensa>
-      </ListaSuspensa>
       </div>
       <div className="acoes">
         <Botao>

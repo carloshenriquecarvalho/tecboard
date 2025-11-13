@@ -1,17 +1,68 @@
 import './App.css'
 import { FormularioDeEventos } from "./components/FormularioDeEventos"
+import { Tema } from "./components/Tema"
+import { Banner } from './components/Banner'
 
 function App() {
+  const temas = [
+    {
+      id: 1,
+      nome: "frontend"
+    },
+    {
+      id: 2,
+      nome: "backend"
+    },
+    {
+      id: 3,
+      nome: "devops"
+    },
+    {
+      id: 4,
+      nome: "inteligência artificial"
+    },
+    {
+      id: 5,
+      nome: "data science"
+    },
+    {
+      id: 6,
+      nome: "cloud"
+    }
+  ]
 
   return (
     <main>
       <header>
         <img src="/logo.png" alt="" />
       </header>
-      <section>
-        <img src="/banner.png" alt="" />
-      </section>
+      <Banner />
       < FormularioDeEventos />
+      <section>
+        <Tema tema={temas[0]}>
+        </Tema>
+      </section>
+   
+      <section>
+        <Tema tema={temas[1]}>
+        </Tema>
+      </section>
+      <section>
+        <Tema tema={temas[2]}>
+        </Tema>
+      </section>
+      <section>
+        <Tema tema={temas[3]}>
+        </Tema>
+      </section>
+      <section>
+        <Tema tema={temas[4]}>
+        </Tema>
+      </section>
+      <section>
+        <Tema tema={temas[5]}>
+        </Tema>
+      </section>
     </main>
   )
 }

@@ -9,15 +9,5 @@ header {
   justify-content: center;
 }
 
-img {
-  max-width: 90%;
-}
-
-section {
-  background: linear-gradient(#17DCB3 0%, #091D24 100%);
-  display: flex;
-  justify-content: center;
-}
-
 
 
