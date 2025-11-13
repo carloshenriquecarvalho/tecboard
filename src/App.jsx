@@ -1,10 +1,13 @@
 import './App.css'
+import { useState } from 'react';
 import { FormularioDeEventos } from "./components/FormularioDeEventos"
 import { Tema } from "./components/Tema"
 import { Banner } from './components/Banner'
 import { CardEvento } from './components/CardEvento/CardEvento'
 
 function App() {
+
+  
   const temas = [
     {
       id: 1,
@@ -31,15 +34,19 @@ function App() {
       nome: "cloud"
     }
   ]
-
-  const eventos = [
-    {
+  
+  const [eventos, setEventos] = useState(
+    [{
       capa: "https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png",
       tema: temas[0],
       data: new Date(),
       titulo: "Mulheres no Front",
-    },
-  ]
+    }],
+  );
+  
+  function adicionarEvento(evento) {
+    setEventos([...eventos, evento]);
+  }
 
   return (
     <main>
@@ -47,37 +54,31 @@ function App() {
         <img src="/logo.png" alt="" />
       </header>
       <Banner />
-      < FormularioDeEventos temas={temas}/>
-      {temas.map(function (item) {
+      < FormularioDeEventos temas={temas} aoSubmeter={adicionarEvento}/>
+      <section className="container">
+      {temas.map(function (tema) {
+        if (!eventos.some((evento) => {
+          return evento.tema.id == tema.id
+        })) {
+          return null;
+        }
         return (
-          <section key={item.id}>
-            <Tema tema={item}>
-              <CardEvento evento={eventos[0]}></CardEvento>
+          <section key={tema.id}>
+            <Tema tema={tema}>
+              <div className="eventos">
+              {eventos
+              .filter(evento => {
+                return evento.tema.id == tema.id
+              })
+              .map((evento, indice) => {
+                return <CardEvento evento={evento} key={indice} />
+              })}
+              </div>
             </Tema>
           </section>
         )
       })}
-{/*       
-      <section>
-        <Tema tema={temas[1]}>
-        </Tema>
       </section>
-      <section>
-        <Tema tema={temas[2]}>
-        </Tema>
-      </section>
-      <section>
-        <Tema tema={temas[3]}>
-        </Tema>
-      </section>
-      <section>
-        <Tema tema={temas[4]}>
-        </Tema>
-      </section>
-      <section>
-        <Tema tema={temas[5]}>
-        </Tema>
-      </section> */}
     </main>
   )
 }

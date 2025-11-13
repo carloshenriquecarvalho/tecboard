@@ -6,10 +6,20 @@ import { CampoDeEntrada } from "../CampoDeEntrada";
 import { Botao } from "../Botao";
 import { ListaSuspensa } from "../ListaSuspensa";
 
+export function FormularioDeEventos({ temas, aoSubmeter }) {
 
-export function FormularioDeEventos({ temas }) {
+  function FormularioSubmetido(formData) {
+    const evento =     {
+      capa: formData.get('url'),
+      tema: temas.find(tema => tema.id == formData.get('tema')),
+      data: new Date(formData.get('data')),
+      titulo: formData.get('nome'),
+    }
+    aoSubmeter(evento);
+  }
+
   return (
-    <form className='evento-form'>
+    <form className='evento-form' action={FormularioSubmetido}>
       <TituloFormulario >
         Preencha para criar um evento: 
       </TituloFormulario>
@@ -19,6 +29,12 @@ export function FormularioDeEventos({ temas }) {
           Qual o nome do evento?
         </Label>
         <CampoDeEntrada type="text" id="nome" name="nome" placeholder='Summer dev hits'/>
+      </CampoFormulario>
+      <CampoFormulario>
+        <Label htmlFor="url">
+          Qual o link da imagem?
+        </Label>
+        <CampoDeEntrada type="text" id="url" name="url" placeholder='https://...'/>
       </CampoFormulario>
       <CampoFormulario>
         <Label htmlFor="data">
@@ -31,12 +47,8 @@ export function FormularioDeEventos({ temas }) {
           Tema do Evento:
         </Label>
         <ListaSuspensa id="tema" name="tema" itens={temas}>
-
         </ListaSuspensa>
       </CampoFormulario>
-      </div>
-      <div>
-        <img src="raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_15.png" alt="" />
       </div>
       <div className="acoes">
         <Botao>
@@ -46,6 +58,3 @@ export function FormularioDeEventos({ temas }) {
     </form>
   )
 }
-
-
-//raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_15.png

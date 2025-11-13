@@ -4,10 +4,7 @@
     gap: 1px;
     border: 1px solid #4A4949;
     background-color: transparent;
-    color: white;
-    outline: 0;
-}
-
-.lista-suspensa .options {
+    color: #4A4949;
     background-color: #212121;
+    outline: 0;
 }
